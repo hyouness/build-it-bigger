@@ -8,6 +8,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.udacity.gradle.jokes.Joker;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -41,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
-        Toast.makeText(this, "derp", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, Joker.tellAJoke(), Toast.LENGTH_LONG).show();
     }
 
 
