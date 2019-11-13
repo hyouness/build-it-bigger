@@ -3,7 +3,8 @@
     package="com.udacity.gradle.jokedisplay">
 
     <application>
-        <activity android:name=".JokeActivity" />
+        <activity android:name=".JokeActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
     </application>
 
 </manifest>

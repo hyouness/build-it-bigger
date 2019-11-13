@@ -24,7 +24,7 @@ public class JokeActivity extends AppCompatActivity {
             TextView jokeSetupTV = findViewById(R.id.joke_setup_tv);
             jokeSetupTV.setText(jokeSetup);
 
-            String jokePunchline = joke.substring(joke.lastIndexOf("\n"));
+            String jokePunchline = joke.substring(joke.lastIndexOf("\n") + 1);
             TextView jokePunchLineTV = findViewById(R.id.joke_punchline_tv);
             jokePunchLineTV.setText(jokePunchline);
         }
