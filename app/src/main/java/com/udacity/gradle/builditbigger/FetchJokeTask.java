@@ -13,7 +13,6 @@ import java.lang.ref.WeakReference;
 // Credit: https://rominirani.com/gradle-tutorial-part-10-consuming-endpoints-in-android-code-6f9aa8c80ce6
 public class FetchJokeTask extends AsyncTask<Void, Void, String> {
 
-    private static final String ROOT_URL = "http://10.0.2.2:8080/_ah/api/";
     private final WeakReference<MainActivity> activityWeakReference;
 
     private static MyApi myApi = null;
@@ -38,7 +37,7 @@ public class FetchJokeTask extends AsyncTask<Void, Void, String> {
     private static void buildApi() {
         MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(),
                 new AndroidJsonFactory(), null)
-                .setRootUrl(ROOT_URL)
+                .setRootUrl(BuildConfig.URL)
                 .setGoogleClientRequestInitializer(request -> request.setDisableGZipContent(true));
         myApi = builder.build();
     }
