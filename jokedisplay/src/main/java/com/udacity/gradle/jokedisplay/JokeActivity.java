@@ -2,7 +2,6 @@ package com.udacity.gradle.jokedisplay;
 
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.MenuItem;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,7 +14,6 @@ public class JokeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_joke);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         setTitle("Joke");
         String joke = getIntent().getStringExtra(JOKE_KEY);
@@ -30,15 +28,4 @@ public class JokeActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int itemId = item.getItemId();
-
-        if (itemId == android.R.id.home) {
-            onBackPressed();
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 }
