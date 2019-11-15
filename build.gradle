@@ -20,3 +20,21 @@ allprojects {
         google()
     }
 }
+
+// wrapper task was created so as not to have :backend:appengineStart
+// permanently finalized by :backend:appengineStop
+task appengineStart {
+    dependsOn ":backend:appengineStart"
+}
+
+def runConnectedTests = tasks.getByPath(":app:connectedAndroidTest")
+def appengineStop = tasks.getByPath(":backend:appengineStop")
+
+appengineStart.finalizedBy appengineStop
+runConnectedTests.mustRunAfter appengineStart
+appengineStop.mustRunAfter runConnectedTests
+
+
+task fetchJokeTestTask {
+    dependsOn = [appengineStart, runConnectedTests, appengineStop]
+}
