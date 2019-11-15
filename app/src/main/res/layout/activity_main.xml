@@ -1,7 +1,36 @@
-<fragment xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragment"
-    android:name="com.udacity.gradle.builditbigger.MainActivityFragment"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:layout="@layout/fragment_main" />
+    android:layout_width="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/fragment_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <fragment
+            android:id="@+id/fragment"
+            android:name="com.udacity.gradle.builditbigger.MainActivityFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout="@layout/fragment_main" />
+    </RelativeLayout>
+
+    <!-- This layout is used to block user interaction with fragment views when progressbar is visible-->
+    <LinearLayout
+        android:id="@+id/mask_ll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:visibility="invisible">
+        <ProgressBar
+            android:id="@+id/joke_pb"
+            android:layout_width="42dp"
+            android:layout_gravity="center"
+            android:layout_height="42dp"
+            android:visibility="gone"/>
+    </LinearLayout>
+</FrameLayout>
